@@ -1,0 +1,53 @@
+{
+    "name": "blinqpay/payment-router",
+    "description": "A smart payment router designed to enhance the payment processing workflow by implementing an intelligent routing system for payment gateways in Laravel",
+    "keywords": [
+        "blinqpay",
+        "payment-router"
+    ],
+    "homepage": "https://github.com/blinqpay/payment-router",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "KINGSLEY UDENEWU",
+            "email": "kingsley.udenewu@hotmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^v9.0.4",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blinqpay\\PaymentRouter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Blinqpay\\PaymentRouter\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Blinqpay\\PaymentRouter\\PaymentRouterServiceProvider"
+            ],
+            "aliases": {
+                "PaymentRouter": "Blinqpay\\PaymentRouter\\PaymentRouterFacade"
+            }
+        }
+    }
+}
