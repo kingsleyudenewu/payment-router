@@ -7,11 +7,6 @@ use \Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-//    protected function setUp(): void
-//    {
-//        parent::setUp();
-//    }
-
     protected function getPackageProviders($app): array
     {
         return [
@@ -22,13 +17,23 @@ abstract class TestCase extends BaseTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('payment-router', [
-            'driver' => 'flutterwave',
-            'flutterwave' => [
-                'public_key' => 'FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X',
-            ],
-            'paystack' => [
-                'public_key' => 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-                'secret_key' => 'sk'
+            'processors' => [
+                'paystack' => [
+                    'name' => 'paystack',
+                    'transaction_cost' => 1.5,
+                    'priority' => 1, // Lower value indicates higher priority
+                    'currencies' => ['NGN', 'USD', 'ZAR'], // Supported currencies
+                    'status' => 'Active',
+                    'class' => \Blinqpay\PaymentRouter\Clients\Paystack::class,
+                ],
+                'flutterwave' => [
+                    'name' => 'flutterwave',
+                    'transaction_cost' => 1.4,
+                    'priority' => 2, // Lower value indicates higher priority
+                    'currencies' => ['NGN', 'USD', 'CAD'], // Supported currencies
+                    'status' => 'Active',
+                    'class' => \Blinqpay\PaymentRouter\Clients\Flutterwave::class,
+                ],
             ],
         ]);
     }

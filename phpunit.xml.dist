@@ -1,28 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
          colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
+         stderr="true">
     <testsuites>
-        <testsuite name="Blinqpay Payment Router Test Suite">
-            <directory>tests</directory>
+        <testsuite name="BlinqPayPaymentRouterTestSuite">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="./tests/report" lowUpperBound="35" highLowerBound="70"/>
-    </logging>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="CONFIG_CACHE_PATH" value=""/>
+        <env name="ROUTE_CACHE_PATH" value=""/>
+        <env name="EVENT_CACHE_PATH" value=""/>
+        <env name="VIEW_CACHE_PATH" value=""/>
     </php>
 </phpunit>
