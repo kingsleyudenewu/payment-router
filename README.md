@@ -1,17 +1,10 @@
-# Very short description of the package
+# A smart seamless payment routing system for payment gateways.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/blinqpay/payment-router.svg?style=flat-square)](https://packagist.org/packages/blinqpay/payment-router)
 [![Total Downloads](https://img.shields.io/packagist/dt/blinqpay/payment-router.svg?style=flat-square)](https://packagist.org/packages/blinqpay/payment-router)
 ![GitHub Actions](https://github.com/blinqpay/payment-router/actions/workflows/main.yml/badge.svg)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require blinqpay/payment-router
 ```
 
 ## Usage
@@ -40,8 +33,7 @@ If you discover any security related issues, please email kingsley.udenewu@hotma
 
 ## Credits
 
--   [KINGSLEY UDENEWU](https://github.com/blinqpay)
--   [All Contributors](../../contributors)
+-   [KINGSLEY UDENEWU](https://github.com/kingsleyudenewu)
 
 ## License
 
