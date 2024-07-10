@@ -104,6 +104,6 @@ class PaymentProcessorService
             return $aFees <=> $bFees ?: $a->config['priority'] <=> $b->config['priority'];
         });
 
-        return collect($availableProviders[0])->collapse()->toArray();
+        return collect(array_shift($availableProviders))->collapse()->toArray();
     }
 }
