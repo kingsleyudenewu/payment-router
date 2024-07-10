@@ -33,11 +33,6 @@ class PaymentProcessorService
         }
     }
 
-    public function fetchAllProcessors(): array
-    {
-        return $this->processors;
-    }
-
     public function updateProcessor(string $name, array $config)
     {
         if (isset($this->processors[$name])) {
