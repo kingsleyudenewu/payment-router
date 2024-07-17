@@ -7,9 +7,6 @@ use Blinqpay\PaymentRouter\Traits\CalculateScore;
 
 class Flutterwave extends PaymentProcessors
 {
-
-    use CalculateScore;
-
     public function __construct()
     {
         parent::__construct(config('payment-router.processors.flutterwave'));

@@ -7,8 +7,6 @@ use Blinqpay\PaymentRouter\Traits\CalculateScore;
 
 class Paystack extends PaymentProcessors
 {
-    use CalculateScore;
-
     public function __construct()
     {
         parent::__construct(config('payment-router.processors.paystack'));
