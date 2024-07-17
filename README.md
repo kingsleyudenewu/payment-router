@@ -5,12 +5,11 @@
 ![GitHub Actions](https://github.com/blinqpay/payment-router/actions/workflows/main.yml/badge.svg)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-```
 
-## Usage
+### For adding new payment processors to the package first publish the package config file
 
-```php
-// Usage description here
+```bash
+php artisan vendor:publish --tag payment-router-config
 ```
 
 ### Testing
