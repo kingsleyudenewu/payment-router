@@ -22,7 +22,7 @@ class PaymentRouterServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('payment-router.php'),
-            ], 'payment-router-config');
+            ], 'payment-router');
 
             // Publishing the views.
             /*$this->publishes([

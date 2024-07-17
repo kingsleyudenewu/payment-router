@@ -9,7 +9,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 ### For adding new payment processors to the package first publish the package config file
 
 ```bash
-php artisan vendor:publish --tag payment-router-config
+php artisan vendor:publish --tag payment-router
 ```
 
 ### Testing

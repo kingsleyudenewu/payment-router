@@ -162,4 +162,34 @@ class PaymentProcessorTest extends TestCase
         $this->assertEquals(1, $updatedProcessor['priority']);
         $this->assertEquals(1.5, $updatedProcessor['transaction_cost']);
     }
+
+    // test if payment-router config file is loaded
+    public function testPaymentRouterConfigFileIsLoaded()
+    {
+        $this->assertArrayHasKey('processors', config('payment-router'));
+    }
+
+    // test if payment-router config file is loaded with the right values
+    public function testPaymentRouterConfigFileIsLoadedWithRightValues()
+    {
+        $this->assertEquals('paystack', config('payment-router.processors.paystack')['name']);
+        $this->assertEquals(1.5, config('payment-router.processors.paystack')['transaction_cost']);
+        $this->assertEquals(1, config('payment-router.processors.paystack')['priority']);
+        $this->assertEquals(['NGN', 'USD', 'ZAR'], config('payment-router.processors.paystack')['currencies']);
+        $this->assertEquals('Active', config('payment-router.processors.paystack')['status']);
+        $this->assertEquals(\Blinqpay\PaymentRouter\Clients\Paystack::class, config('payment-router.processors.paystack')['class']);
+    }
+
+    // test if payment-router config file is loaded with the right values when the file is published
+    public function testPaymentRouterConfigFileIsLoadedWithRightValuesWhenPublished()
+    {
+        $this->artisan('vendor:publish', ['--tag' => 'payment-router']);
+
+        $this->assertEquals('paystack', config('payment-router.processors.paystack')['name']);
+        $this->assertEquals(1.5, config('payment-router.processors.paystack')['transaction_cost']);
+        $this->assertEquals(1, config('payment-router.processors.paystack')['priority']);
+        $this->assertEquals(['NGN', 'USD', 'ZAR'], config('payment-router.processors.paystack')['currencies']);
+        $this->assertEquals('Active', config('payment-router.processors.paystack')['status']);
+        $this->assertEquals(\Blinqpay\PaymentRouter\Clients\Paystack::class, config('payment-router.processors.paystack')['class']);
+    }
 }
